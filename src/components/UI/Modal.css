@@ -1,0 +1,53 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 20%;
+  width: 40%;
+  max-width: 50%;
+  height: 210px;
+  z-index: 99999;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.modal .error-modal-header {
+  background-color: #3b5998;
+  height: 80px;
+  padding: 20px;
+  color: #fff;
+}
+.modal .error-modal-content {
+  padding: 8px 20px;
+}
+
+.modal-actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.modal-actions button {
+  padding: 12px 30px;
+  font-size: 20px;
+  border-radius: 2px;
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 60%;
+    margin: 20px;
+    height: auto;
+  }
+  .error-modal-header {
+    font-size: 12px;
+  }
+}

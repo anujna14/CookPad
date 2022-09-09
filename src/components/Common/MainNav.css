@@ -1,0 +1,116 @@
+.navigation {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0rem;
+  color: #f7f7f7;
+}
+.header-content {
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+}
+.brand-name {
+  text-decoration: none;
+  color: #f7f7f7;
+  font-size: 30px;
+  margin-left: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.navigation-menu {
+  margin-left: auto;
+}
+.app-logo {
+  width: 50px;
+  height: 50px;
+}
+.navigation-menu ul {
+  display: flex;
+  padding: 0;
+  margin-right: 20px;
+}
+.navigation-menu li {
+  list-style-type: none;
+  margin: 0 1rem;
+  padding: 12px 20px;
+}
+.navigation-menu li a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: #f7f7f7;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #283b8b;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
+.hamburger:hover {
+  background-color: #2642af;
+}
+.selected{
+  border-bottom: 4px solid #f7f7f7;
+}
+.badge{
+  position: absolute;
+  background-color: red;
+  width: 20px;
+  text-align: center;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  top: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .navigation-menu ul {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 77px);
+    background-color: white;
+    border-top: 1px solid black;
+    display: none;
+  }
+  .navigation-menu li {
+    text-align: center;
+    margin: 0;
+  }
+  .navigation-menu li a {
+    color: black;
+    width: 100%;
+    padding: 1.5rem 0;
+  }
+  .navigation-menu li:hover {
+    background-color: #eee;
+  }
+  .navigation-menu.expanded ul {
+    display: block;
+  }
+  .selected{
+    border-bottom: none;
+  }
+  .badge{
+    display: none;
+  }
+}
