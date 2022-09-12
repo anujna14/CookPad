@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Card from "../UI/Card";
 import "./RecipeItems.css";
 import { useSelector, useDispatch } from "react-redux";
+import PropTypes  from 'prop-types';
+
 
 const RecipeItems = ({ recipe }) => {
   const ctxItms = useSelector((state) => state);
@@ -43,3 +45,11 @@ const RecipeItems = ({ recipe }) => {
 };
 
 export default RecipeItems;
+RecipeItems.propTypes = {
+  recipe: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    imageType: PropTypes.oneOf(["jpg", "png"]).isRequired,
+  }).isRequired,
+};
