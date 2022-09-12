@@ -8,10 +8,11 @@ import { toast } from "react-toastify";
 
 const Recipes = () => {
   const { searchValue } = useContext(SearchContext);
+  const [next, setnext] = useState(6);
 
   const [recipes, setRecipes] = useState([]);
 
-  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchValue}&number=10`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchValue}&number=20`;
 
   const getRecipes = useCallback(async () => {
     await Axios.get(url, {
@@ -33,6 +34,10 @@ const Recipes = () => {
       );
   }, [url]);
 
+  const handleLoadMore = () => {
+    setnext((prevVal) => prevVal + 3);
+  };
+
   useEffect(() => {
     getRecipes();
   }, [getRecipes]);
@@ -47,9 +52,12 @@ const Recipes = () => {
   return (
     <React.Fragment>
       <div className="recipes-container">
-        {recipes.map((recipe) => (
+        {recipes.slice(0, next).map((recipe) => (
           <RecipeItems key={recipe.id} recipe={recipe} />
         ))}
+      </div>
+      <div className="btn-load-more">
+        {next < recipes.length ? <button onClick={handleLoadMore}>Load More</button> : <button onClick={() => setnext(6)}>Show Less</button>}
       </div>
     </React.Fragment>
   );
