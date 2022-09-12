@@ -10,7 +10,6 @@ const SearchContextProvider = (props) => {
   const [searchedValue, setsearchedValue] = useState("pasta");
 
   const handleSearchedValue = (searchVal) => {
-    console.log(searchVal)
     setsearchedValue(searchVal);
   };
 
@@ -18,7 +17,6 @@ const SearchContextProvider = (props) => {
     searchValue: searchedValue,
     handleSearch: handleSearchedValue,
   };
-  console.log("contextValue", contextValue)
   return <SearchContext.Provider value={contextValue}>{props.children}</SearchContext.Provider>;
 };
 export default SearchContextProvider;

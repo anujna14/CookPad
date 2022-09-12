@@ -25,7 +25,6 @@ const ModalOverlay = (props) => {
 };
 
 const Modal = (props) => {
-  console.log(props);
   return (
     <React.Fragment>
       {ReactDOM.createPortal(<Backdrop onConfirm={props.onConfirm} />, document.getElementById("backdrop-modal"))}

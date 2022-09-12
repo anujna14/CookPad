@@ -8,7 +8,6 @@ const RecipeItems = ({ recipe }) => {
   const ctxItms = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  console.log("ctxItms", ctxItms.favourites.length)
   let isItemFav = ctxItms.favourites.some((fav) => fav.id === recipe.id);
 
   const handleAddToFav = (recipe) => {
